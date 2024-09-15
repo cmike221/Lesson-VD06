@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Простой блог</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container my-5">
+        <h1 class="mb-4">Простой блог</h1>
+
+        <form method="post" action="/" class="mb-5">
+            <div class="mb-3">
+                <label for="tittle" class="form-label">Заголовок</label>
+                <input id="tittle" type="text" name="tittle" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="content" class="form-label">Текст поста</label>
+                <textarea id="content" name="content" class="form-control" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Отправить пост</button>
+        </form>
+
+        <hr>
+
+        <h2 class="my-4">Посты</h2>
+
+        <div class="list-group">
+            {% for post in posts %}
+                <div class="list-group-item mb-3">
+                    <h4>{{ post.tittle }}</h4>
+                    <p>{{ post.content }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+0LbU8lz0+0D6pQfS4/6pQ7Q5p5v5" crossorigin="anonymous"></script>
+</body>
+</html>
